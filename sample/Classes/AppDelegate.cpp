@@ -39,18 +39,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     GrowthPush::trackEvent("Launch");
     GrowthPush::setDeviceTags();
     GrowthPush::clearBadge();
-    GrowthPush::setOpenNotificationCallback(this, gp_remote_notification_selector(AppDelegate::didLaunchWithNotification));
 
     return true;
-}
-
-void AppDelegate::didLaunchWithNotification(Value extra) {
-    
-    CCLOG("%s", extra.getDescription().c_str());
-    auto growthpushCustomField = extra.asValueMap()["growthpush"].asValueMap();
-    auto notificationId = growthpushCustomField["notificationId"];
-    GrowthPush::trackEvent("Launch via push notification", notificationId.asString());
-    
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
