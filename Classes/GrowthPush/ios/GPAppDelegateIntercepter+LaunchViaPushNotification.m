@@ -33,11 +33,6 @@
     
 }
 
-
-- (void)willPerformApplicationWillEnterForeground:(UIApplication *)application {
-    NSLog(@"----");
-}
-
 - (void)trackLaunchViaPushNotificationEvent:(NSDictionary *)payload {
     
     if(payload == nil)

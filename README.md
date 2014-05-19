@@ -63,8 +63,11 @@ How to edit AndroidManifest.xml.
 How to edit Android.mk.
 
 ```bash
-LOCAL_SRC_FILES := ../../Classes/GrowthPush/android/GrowthPush.cpp
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes/GrowthPush
+LOCAL_SRC_FILES := ../../Classes/GrowthPush/android/GrowthPush.cpp 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../cocos2d/cocos/ \
+                    $(LOCAL_PATH)/../../cocos2d/cocos/base/ \
+                    $(LOCAL_PATH)/../../cocos2d/external/ \
+                    $(LOCAL_PATH)/../../Classes/GrowthPush 
 ```
 
 How to pass Context to GrowthPushJNI.
