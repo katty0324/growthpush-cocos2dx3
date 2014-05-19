@@ -106,3 +106,23 @@ bool AppDelegate::applicationDidFinishLaunching() {
     return YES;
 }
 ```
+
+## How to track "Launch via push notification xxx"
+
+1. Add GPAppDelegateIntercepter+GrowthPushCocos2dx.h and GPAppDelegateIntercepter+GrowthPushCocos2dx.m to your Xcode project
+1. Disable ARC for GPAppDelegateIntercepter+GrowthPushCocos2dx.m by adding "-fno-objc-arc" flag. 
+1. Add growthpush-launch-via-push-notification.jar to libs directory in your Andorid project
+1. Change BroadcastReceiver to LaunchViaPushNotificationBroadcastReceiver
+
+  ```java
+   <receiver
+       android:name="com.growthpush.LaunchViaPushNotificationBroadcastReceiver"
+       android:permission="com.google.android.c2dm.permission.SEND" >
+       <intent-filter>
+           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+           <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+           <category android:name="com.growthpush.sample" />
+       </intent-filter>
+   </receiver>
+   ```
